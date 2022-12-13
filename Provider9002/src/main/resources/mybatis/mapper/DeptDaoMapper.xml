@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.provider9002.dao.DeptDao">
+    <insert id="addDept" parameterType="com.example.provider9002.pojo.Department">
+        insert into department  (departmentname,db_source)
+        values (#{departmentname},DATABASE())
+    </insert>
+
+    <select id="queryById" parameterType="Long" resultType="com.example.provider9002.pojo.Department">
+        select * from department where departmentno = #{departmentno};
+    </select>
+
+    <select id="queryAll" resultType="com.example.provider9002.pojo.Department">
+        select * from department;
+    </select>
+</mapper>
